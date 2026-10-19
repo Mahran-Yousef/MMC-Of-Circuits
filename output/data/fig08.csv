@@ -1,0 +1,9 @@
+n_inputs,priors,gates,inputs,depth,mmc
+2,heterogeneous,1,2,1,4.986517034754822
+2,homogeneous,1,2,1,1.0
+4,heterogeneous,3,4,2,11.38736885826462
+4,homogeneous,3,4,2,3.0
+8,heterogeneous,7,8,3,19.865908454665977
+8,homogeneous,7,8,3,7.0
+16,heterogeneous,15,16,4,32.349000069010195
+16,homogeneous,15,16,4,15.0

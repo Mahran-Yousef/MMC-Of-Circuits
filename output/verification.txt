@@ -1,0 +1,220 @@
+1. Equations vs brute force (Eq. B5 on the full joint distribution; random priors, input
+   distributions, topological orders, and random q_pa / q_rest / q_nin):
+   PASS  Eq.26 total vs brute force                       max error 1.4e-14 bits
+   PASS  Eqs.20/C31 per step vs brute force               max error 4.4e-15 bits
+   PASS  Eq.33 (product layer priors) vs Eq.26            max error 1.8e-15 bits
+   PASS  Eq.33 (product layer priors) vs brute force      max error 1.1e-14 bits
+   PASS  Eq.33 (joint layer priors) vs brute force        max error 5.3e-15 bits
+   PASS  run returns to p^0                               max error 5.6e-17 bits
+   PASS  per-step sum vs closed form                      max error 1.8e-15 bits
+
+2. Plotted points recomputed by brute force (Eq. B5), all points small enough:
+   PASS  fig04  n=2, schedule=gate                           plotted     7.931833  brute force     7.931833
+   PASS  fig04  n=2, schedule=layer                          plotted     7.171351  brute force     7.171351
+   PASS  fig04  n=3, schedule=gate                           plotted    12.428023  brute force    12.428023
+   PASS  fig04  n=3, schedule=layer                          plotted    11.137268  brute force    11.137268
+   PASS  fig06  n_inputs=2, input_dist=all-ones              plotted     3.000000  brute force     3.000000
+   PASS  fig06  n_inputs=2, input_dist=uniform               plotted     1.000000  brute force     1.000000
+   PASS  fig06  n_inputs=4, input_dist=all-ones              plotted     7.000000  brute force     7.000000
+   PASS  fig06  n_inputs=4, input_dist=uniform               plotted     3.000000  brute force     3.000000
+   PASS  fig06  n_inputs=8, input_dist=all-ones              plotted    15.000000  brute force    15.000000
+   PASS  fig06  n_inputs=8, input_dist=uniform               plotted     7.000000  brute force     7.000000
+   PASS  fig07  family=Ripple-Carry, n=2, prior=type         plotted     9.660150  brute force     9.660150
+   PASS  fig07  family=Ripple-Carry, n=3, prior=type         plotted    14.490225  brute force    14.490225
+   PASS  fig07  family=Kogge-Stone, n=2, prior=type          plotted     8.452631  brute force     8.452631
+   PASS  fig07  family=Ripple-Carry, n=2, prior=matched      plotted     7.931833  brute force     7.931833
+   PASS  fig07  family=Ripple-Carry, n=3, prior=matched      plotted    12.428023  brute force    12.428023
+   PASS  fig07  family=Kogge-Stone, n=2, prior=matched       plotted     7.931833  brute force     7.931833
+   PASS  fig08  n_inputs=2, priors=heterogeneous             plotted     4.986517  brute force     4.986517
+   PASS  fig08  n_inputs=2, priors=homogeneous               plotted     1.000000  brute force     1.000000
+   PASS  fig08  n_inputs=4, priors=heterogeneous             plotted    11.387369  brute force    11.387369
+   PASS  fig08  n_inputs=4, priors=homogeneous               plotted     3.000000  brute force     3.000000
+   PASS  fig08  n_inputs=8, priors=heterogeneous             plotted    19.865908  brute force    19.865908
+   PASS  fig08  n_inputs=8, priors=homogeneous               plotted     7.000000  brute force     7.000000
+   PASS  fig09  n_inputs=2, prior=agree                      plotted     0.811278  brute force     0.811278
+   PASS  fig09  n_inputs=4, prior=agree                      plotted     1.959846  brute force     1.959846
+   PASS  fig09  n_inputs=8, prior=agree                      plotted     3.956567  brute force     3.956567
+   PASS  fig09  n_inputs=2, prior=uniform                    plotted     1.000000  brute force     1.000000
+   PASS  fig09  n_inputs=4, prior=uniform                    plotted     3.000000  brute force     3.000000
+   PASS  fig09  n_inputs=8, prior=uniform                    plotted     7.000000  brute force     7.000000
+   PASS  fig09  n_inputs=2, prior=disagree                   plotted     3.178287  brute force     3.178287
+   PASS  fig09  n_inputs=4, prior=disagree                   plotted    10.827779  brute force    10.827779
+   PASS  fig09  n_inputs=8, prior=disagree                   plotted    26.675425  brute force    26.675425
+   PASS  fig10  depth=1, gate_type=ZERO                      plotted     9.965784  brute force     9.965784
+   PASS  fig10  depth=2, gate_type=AND                       plotted    34.568814  brute force    34.568814
+   PASS  fig10  depth=3, gate_type=NOR                       plotted   119.432480  brute force   119.432480
+   PASS  fig11  gate=AND, q=0.01                             plotted     1.671839  brute force     1.671839
+   PASS  fig11  gate=AND, q=0.03                             plotted     1.297681  brute force     1.297681
+   PASS  fig11  gate=AND, q=0.05                             plotted     1.135982  brute force     1.135982
+   PASS  fig11  gate=AND, q=0.07                             plotted     1.037648  brute force     1.037648
+   PASS  fig11  gate=AND, q=0.09                             plotted     0.970529  brute force     0.970529
+   PASS  fig11  gate=AND, q=0.11                             plotted     0.922198  brute force     0.922198
+   PASS  fig11  gate=AND, q=0.13                             plotted     0.886539  brute force     0.886539
+   PASS  fig11  gate=AND, q=0.15                             plotted     0.860090  brute force     0.860090
+   PASS  fig11  gate=AND, q=0.17                             plotted     0.840711  brute force     0.840711
+   PASS  fig11  gate=AND, q=0.19                             plotted     0.826987  brute force     0.826987
+   PASS  fig11  gate=AND, q=0.21                             plotted     0.817941  brute force     0.817941
+   PASS  fig11  gate=AND, q=0.23                             plotted     0.812876  brute force     0.812876
+   PASS  fig11  gate=AND, q=0.25                             plotted     0.811278  brute force     0.811278
+   PASS  fig11  gate=AND, q=0.27                             plotted     0.812766  brute force     0.812766
+   PASS  fig11  gate=AND, q=0.29                             plotted     0.817051  brute force     0.817051
+   PASS  fig11  gate=AND, q=0.31                             plotted     0.823914  brute force     0.823914
+   PASS  fig11  gate=AND, q=0.33                             plotted     0.833191  brute force     0.833191
+   PASS  fig11  gate=AND, q=0.35                             plotted     0.844760  brute force     0.844760
+   PASS  fig11  gate=AND, q=0.37                             plotted     0.858533  brute force     0.858533
+   PASS  fig11  gate=AND, q=0.39                             plotted     0.874453  brute force     0.874453
+   PASS  fig11  gate=AND, q=0.41                             plotted     0.892486  brute force     0.892486
+   PASS  fig11  gate=AND, q=0.43                             plotted     0.912622  brute force     0.912622
+   PASS  fig11  gate=AND, q=0.45                             plotted     0.934873  brute force     0.934873
+   PASS  fig11  gate=AND, q=0.47                             plotted     0.959269  brute force     0.959269
+   PASS  fig11  gate=AND, q=0.49                             plotted     0.985860  brute force     0.985860
+   PASS  fig11  gate=AND, q=0.51                             plotted     1.014717  brute force     1.014717
+   PASS  fig11  gate=AND, q=0.53                             plotted     1.045934  brute force     1.045934
+   PASS  fig11  gate=AND, q=0.55                             plotted     1.079626  brute force     1.079626
+   PASS  fig11  gate=AND, q=0.57                             plotted     1.115935  brute force     1.115935
+   PASS  fig11  gate=AND, q=0.59                             plotted     1.155031  brute force     1.155031
+   PASS  fig11  gate=AND, q=0.61                             plotted     1.197120  brute force     1.197120
+   PASS  fig11  gate=AND, q=0.63                             plotted     1.242446  brute force     1.242446
+   PASS  fig11  gate=AND, q=0.65                             plotted     1.291302  brute force     1.291302
+   PASS  fig11  gate=AND, q=0.67                             plotted     1.344038  brute force     1.344038
+   PASS  fig11  gate=AND, q=0.69                             plotted     1.401078  brute force     1.401078
+   PASS  fig11  gate=AND, q=0.71                             plotted     1.462934  brute force     1.462934
+   PASS  fig11  gate=AND, q=0.73                             plotted     1.530234  brute force     1.530234
+   PASS  fig11  gate=AND, q=0.75                             plotted     1.603759  brute force     1.603759
+   PASS  fig11  gate=AND, q=0.77                             plotted     1.684488  brute force     1.684488
+   PASS  fig11  gate=AND, q=0.79                             plotted     1.773673  brute force     1.773673
+   PASS  fig11  gate=AND, q=0.81                             plotted     1.872948  brute force     1.872948
+   PASS  fig11  gate=AND, q=0.83                             plotted     1.984499  brute force     1.984499
+   PASS  fig11  gate=AND, q=0.85                             plotted     2.111341  brute force     2.111341
+   PASS  fig11  gate=AND, q=0.87                             plotted     2.257791  brute force     2.257791
+   PASS  fig11  gate=AND, q=0.89                             plotted     2.430349  brute force     2.430349
+   PASS  fig11  gate=AND, q=0.91                             plotted     2.639464  brute force     2.639464
+   PASS  fig11  gate=AND, q=0.93                             plotted     2.903550  brute force     2.903550
+   PASS  fig11  gate=AND, q=0.95                             plotted     3.259946  brute force     3.259946
+   PASS  fig11  gate=AND, q=0.97                             plotted     3.805156  brute force     3.805156
+   PASS  fig11  gate=AND, q=0.99                             plotted     4.986517  brute force     4.986517
+   PASS  fig11  gate=OR, q=0.01                              plotted     4.986517  brute force     4.986517
+   PASS  fig11  gate=OR, q=0.03                              plotted     3.805156  brute force     3.805156
+   PASS  fig11  gate=OR, q=0.05                              plotted     3.259946  brute force     3.259946
+   PASS  fig11  gate=OR, q=0.07                              plotted     2.903550  brute force     2.903550
+   PASS  fig11  gate=OR, q=0.09                              plotted     2.639464  brute force     2.639464
+   PASS  fig11  gate=OR, q=0.11                              plotted     2.430349  brute force     2.430349
+   PASS  fig11  gate=OR, q=0.13                              plotted     2.257791  brute force     2.257791
+   PASS  fig11  gate=OR, q=0.15                              plotted     2.111341  brute force     2.111341
+   PASS  fig11  gate=OR, q=0.17                              plotted     1.984499  brute force     1.984499
+   PASS  fig11  gate=OR, q=0.19                              plotted     1.872948  brute force     1.872948
+   PASS  fig11  gate=OR, q=0.21                              plotted     1.773673  brute force     1.773673
+   PASS  fig11  gate=OR, q=0.23                              plotted     1.684488  brute force     1.684488
+   PASS  fig11  gate=OR, q=0.25                              plotted     1.603759  brute force     1.603759
+   PASS  fig11  gate=OR, q=0.27                              plotted     1.530234  brute force     1.530234
+   PASS  fig11  gate=OR, q=0.29                              plotted     1.462934  brute force     1.462934
+   PASS  fig11  gate=OR, q=0.31                              plotted     1.401078  brute force     1.401078
+   PASS  fig11  gate=OR, q=0.33                              plotted     1.344038  brute force     1.344038
+   PASS  fig11  gate=OR, q=0.35                              plotted     1.291302  brute force     1.291302
+   PASS  fig11  gate=OR, q=0.37                              plotted     1.242446  brute force     1.242446
+   PASS  fig11  gate=OR, q=0.39                              plotted     1.197120  brute force     1.197120
+   PASS  fig11  gate=OR, q=0.41                              plotted     1.155031  brute force     1.155031
+   PASS  fig11  gate=OR, q=0.43                              plotted     1.115935  brute force     1.115935
+   PASS  fig11  gate=OR, q=0.45                              plotted     1.079626  brute force     1.079626
+   PASS  fig11  gate=OR, q=0.47                              plotted     1.045934  brute force     1.045934
+   PASS  fig11  gate=OR, q=0.49                              plotted     1.014717  brute force     1.014717
+   PASS  fig11  gate=OR, q=0.51                              plotted     0.985860  brute force     0.985860
+   PASS  fig11  gate=OR, q=0.53                              plotted     0.959269  brute force     0.959269
+   PASS  fig11  gate=OR, q=0.55                              plotted     0.934873  brute force     0.934873
+   PASS  fig11  gate=OR, q=0.57                              plotted     0.912622  brute force     0.912622
+   PASS  fig11  gate=OR, q=0.59                              plotted     0.892486  brute force     0.892486
+   PASS  fig11  gate=OR, q=0.61                              plotted     0.874453  brute force     0.874453
+   PASS  fig11  gate=OR, q=0.63                              plotted     0.858533  brute force     0.858533
+   PASS  fig11  gate=OR, q=0.65                              plotted     0.844760  brute force     0.844760
+   PASS  fig11  gate=OR, q=0.67                              plotted     0.833191  brute force     0.833191
+   PASS  fig11  gate=OR, q=0.69                              plotted     0.823914  brute force     0.823914
+   PASS  fig11  gate=OR, q=0.71                              plotted     0.817051  brute force     0.817051
+   PASS  fig11  gate=OR, q=0.73                              plotted     0.812766  brute force     0.812766
+   PASS  fig11  gate=OR, q=0.75                              plotted     0.811278  brute force     0.811278
+   PASS  fig11  gate=OR, q=0.77                              plotted     0.812876  brute force     0.812876
+   PASS  fig11  gate=OR, q=0.79                              plotted     0.817941  brute force     0.817941
+   PASS  fig11  gate=OR, q=0.81                              plotted     0.826987  brute force     0.826987
+   PASS  fig11  gate=OR, q=0.83                              plotted     0.840711  brute force     0.840711
+   PASS  fig11  gate=OR, q=0.85                              plotted     0.860090  brute force     0.860090
+   PASS  fig11  gate=OR, q=0.87                              plotted     0.886539  brute force     0.886539
+   PASS  fig11  gate=OR, q=0.89                              plotted     0.922198  brute force     0.922198
+   PASS  fig11  gate=OR, q=0.91                              plotted     0.970529  brute force     0.970529
+   PASS  fig11  gate=OR, q=0.93                              plotted     1.037648  brute force     1.037648
+   PASS  fig11  gate=OR, q=0.95                              plotted     1.135982  brute force     1.135982
+   PASS  fig11  gate=OR, q=0.97                              plotted     1.297681  brute force     1.297681
+   PASS  fig11  gate=OR, q=0.99                              plotted     1.671839  brute force     1.671839
+   PASS  fig11  gate=XOR, q=0.01                             plotted     3.329178  brute force     3.329178
+   PASS  fig11  gate=XOR, q=0.03                             plotted     2.551419  brute force     2.551419
+   PASS  fig11  gate=XOR, q=0.05                             plotted     2.197964  brute force     2.197964
+   PASS  fig11  gate=XOR, q=0.07                             plotted     1.970599  brute force     1.970599
+   PASS  fig11  gate=XOR, q=0.09                             plotted     1.804996  brute force     1.804996
+   PASS  fig11  gate=XOR, q=0.11                             plotted     1.676274  brute force     1.676274
+   PASS  fig11  gate=XOR, q=0.13                             plotted     1.572165  brute force     1.572165
+   PASS  fig11  gate=XOR, q=0.15                             plotted     1.485715  brute force     1.485715
+   PASS  fig11  gate=XOR, q=0.17                             plotted     1.412605  brute force     1.412605
+   PASS  fig11  gate=XOR, q=0.19                             plotted     1.349967  brute force     1.349967
+   PASS  fig11  gate=XOR, q=0.21                             plotted     1.295807  brute force     1.295807
+   PASS  fig11  gate=XOR, q=0.23                             plotted     1.248682  brute force     1.248682
+   PASS  fig11  gate=XOR, q=0.25                             plotted     1.207519  brute force     1.207519
+   PASS  fig11  gate=XOR, q=0.27                             plotted     1.171500  brute force     1.171500
+   PASS  fig11  gate=XOR, q=0.29                             plotted     1.139992  brute force     1.139992
+   PASS  fig11  gate=XOR, q=0.31                             plotted     1.112496  brute force     1.112496
+   PASS  fig11  gate=XOR, q=0.33                             plotted     1.088615  brute force     1.088615
+   PASS  fig11  gate=XOR, q=0.35                             plotted     1.068031  brute force     1.068031
+   PASS  fig11  gate=XOR, q=0.37                             plotted     1.050490  brute force     1.050490
+   PASS  fig11  gate=XOR, q=0.39                             plotted     1.035786  brute force     1.035786
+   PASS  fig11  gate=XOR, q=0.41                             plotted     1.023759  brute force     1.023759
+   PASS  fig11  gate=XOR, q=0.43                             plotted     1.014279  brute force     1.014279
+   PASS  fig11  gate=XOR, q=0.45                             plotted     1.007250  brute force     1.007250
+   PASS  fig11  gate=XOR, q=0.47                             plotted     1.002602  brute force     1.002602
+   PASS  fig11  gate=XOR, q=0.49                             plotted     1.000289  brute force     1.000289
+   PASS  fig11  gate=XOR, q=0.51                             plotted     1.000289  brute force     1.000289
+   PASS  fig11  gate=XOR, q=0.53                             plotted     1.002602  brute force     1.002602
+   PASS  fig11  gate=XOR, q=0.55                             plotted     1.007250  brute force     1.007250
+   PASS  fig11  gate=XOR, q=0.57                             plotted     1.014279  brute force     1.014279
+   PASS  fig11  gate=XOR, q=0.59                             plotted     1.023759  brute force     1.023759
+   PASS  fig11  gate=XOR, q=0.61                             plotted     1.035786  brute force     1.035786
+   PASS  fig11  gate=XOR, q=0.63                             plotted     1.050490  brute force     1.050490
+   PASS  fig11  gate=XOR, q=0.65                             plotted     1.068031  brute force     1.068031
+   PASS  fig11  gate=XOR, q=0.67                             plotted     1.088615  brute force     1.088615
+   PASS  fig11  gate=XOR, q=0.69                             plotted     1.112496  brute force     1.112496
+   PASS  fig11  gate=XOR, q=0.71                             plotted     1.139992  brute force     1.139992
+   PASS  fig11  gate=XOR, q=0.73                             plotted     1.171500  brute force     1.171500
+   PASS  fig11  gate=XOR, q=0.75                             plotted     1.207519  brute force     1.207519
+   PASS  fig11  gate=XOR, q=0.77                             plotted     1.248682  brute force     1.248682
+   PASS  fig11  gate=XOR, q=0.79                             plotted     1.295807  brute force     1.295807
+   PASS  fig11  gate=XOR, q=0.81                             plotted     1.349967  brute force     1.349967
+   PASS  fig11  gate=XOR, q=0.83                             plotted     1.412605  brute force     1.412605
+   PASS  fig11  gate=XOR, q=0.85                             plotted     1.485715  brute force     1.485715
+   PASS  fig11  gate=XOR, q=0.87                             plotted     1.572165  brute force     1.572165
+   PASS  fig11  gate=XOR, q=0.89                             plotted     1.676274  brute force     1.676274
+   PASS  fig11  gate=XOR, q=0.91                             plotted     1.804996  brute force     1.804996
+   PASS  fig11  gate=XOR, q=0.93                             plotted     1.970599  brute force     1.970599
+   PASS  fig11  gate=XOR, q=0.95                             plotted     2.197964  brute force     2.197964
+   PASS  fig11  gate=XOR, q=0.97                             plotted     2.551419  brute force     2.551419
+   PASS  fig11  gate=XOR, q=0.99                             plotted     3.329178  brute force     3.329178
+   PASS  fig12  q_or=0.01                                    plotted    27.946068  brute force    27.946068
+   PASS  fig12  q_or=0.05                                    plotted    21.039785  brute force    21.039785
+   PASS  fig12  q_or=0.1                                     plotted    18.117787  brute force    18.117787
+   PASS  fig12  q_or=0.15                                    plotted    16.445362  brute force    16.445362
+   PASS  fig12  q_or=0.2                                     plotted    15.287712  brute force    15.287712
+   PASS  fig12  q_or=0.25                                    plotted    14.415037  brute force    14.415037
+   PASS  fig12  q_or=0.3                                     plotted    13.725470  brute force    13.725470
+   PASS  fig12  q_or=0.35                                    plotted    13.165208  brute force    13.165208
+   PASS  fig12  q_or=0.4                                     plotted    12.702750  brute force    12.702750
+   PASS  fig12  q_or=0.45                                    plotted    12.318506  brute force    12.318506
+   PASS  fig12  q_or=0.5                                     plotted    12.000000  brute force    12.000000
+   PASS  fig12  q_or=0.55                                    plotted    11.739493  brute force    11.739493
+   PASS  fig12  q_or=0.6                                     plotted    11.532825  brute force    11.532825
+   PASS  fig12  q_or=0.65                                    plotted    11.379038  brute force    11.379038
+   PASS  fig12  q_or=0.7                                     plotted    11.280685  brute force    11.280685
+   PASS  fig12  q_or=0.75                                    plotted    11.245112  brute force    11.245112
+   PASS  fig12  q_or=0.8                                     plotted    11.287712  brute force    11.287712
+   PASS  fig12  q_or=0.85                                    plotted    11.440361  brute force    11.440361
+   PASS  fig12  q_or=0.9                                     plotted    11.777937  brute force    11.777937
+   PASS  fig12  q_or=0.95                                    plotted    12.543930  brute force    12.543930
+   PASS  fig12  q_or=0.99                                    plotted    14.687355  brute force    14.687355
+
+   205 points checked, max error 8.9e-15 bits
+
+ALL CHECKS PASSED  (61 s)
