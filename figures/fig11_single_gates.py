@@ -2,7 +2,6 @@
 
 Uniform inputs, parent-independent gate prior q_g(x_g = 1) varied. Each curve is minimised where
 the prior equals the gate's output distribution (1/4 for AND, 3/4 for OR, 1/2 for XOR).
-(The published Fig. 11 already agrees with Eq. 26; this regenerates it.)
 """
 
 import numpy as np
