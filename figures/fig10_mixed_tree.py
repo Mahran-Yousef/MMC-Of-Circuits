@@ -38,7 +38,6 @@ def plot(rows, save):
 
 
 def caption(rows):
-    # The authors' caption, with only the gate order changed (and the subscript braces fixed).
     return r"""\caption{Mismatch cost of a mixed binary tree circuit family. This figure illustrates that
 the linear cost--size relation need not hold for circuit families in the finite input regime.
 The circuit family is constructed as follows: starting with a depth-1 tree which consists of
